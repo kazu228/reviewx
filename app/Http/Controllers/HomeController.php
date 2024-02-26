@@ -13,9 +13,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Review $review)
     {
         $this->middleware('auth');
+        $this->review = $review;
     }
 
     /**
@@ -25,15 +26,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $reviews = Review::select('review.*', 'users.name AS user_name')
-                            ->leftjoin('users', 'review.user_id', '=', 'users.id')->get();
+        // $reviews = Review::select('review.*', 'users.name AS user_name')
+        //                     ->leftjoin('users', 'review.user_id', '=', 'users.id')->get();
+        $reviews = $this->review->getJoinedUsers();
         return view('home', compact('reviews'));
     }
 
     public function detail($id)
     {
-        $review = Review::select('review.*', 'users.name AS user_name')
-                            ->leftjoin('users', 'review.user_id', '=', 'users.id')->first($id);
+        // $review = Review::select('review.*', 'users.name AS user_name')
+        //                     ->leftjoin('users', 'review.user_id', '=', 'users.id')->first($id);
+        $review = $this->review->getJoinedUserFirst($id);
         return view('detail', compact('review'));
     }
     public function create()
@@ -53,8 +56,9 @@ class HomeController extends Controller
     public function comment($id) {
         // return redirect('/home');
         // $review = Review::find($id);
-        $review = Review::select('review.*', 'users.name AS user_name')
-                        ->leftjoin('users', 'review.user_id', '=', 'users.id')->first($id);
+        // $review = Review::select('review.*', 'users.name AS user_name')
+        //                 ->leftjoin('users', 'review.user_id', '=', 'users.id')->first($id);
+        $review = $this->review->getJoinedUserFirst($id);
         return view('comment', compact('review'));
     }
 }
