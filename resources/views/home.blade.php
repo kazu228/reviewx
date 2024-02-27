@@ -2,7 +2,11 @@
 
 @section('content')
 <body id="page-top">
+    
 <div class="container masthead">
+    <div class="d-md-flex d-md-flex justify-content-md-end">
+        <a href="{{ route('create') }}" class="btn btn-primary pull-right">レビューしてもらう</a>
+    </div>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <h1 class="mb-1">{{ config('app.name') }}</h1>
