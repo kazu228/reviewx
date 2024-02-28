@@ -47,6 +47,11 @@ class HomeController extends Controller
     {
         $review = new Review();
         $user_id = Auth::id();
+
+        // ファイルアップロード
+        $request->file('contents')->store('');
+
+
         $input_arr = $request->input();
         $input_arr['user_id'] = $user_id;
         $review->create($input_arr);
