@@ -2,7 +2,19 @@
 @section('content')
     <body id="page-top">
         <!-- Navigation-->
-        
+        @if (Route::has('login'))
+            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+                @auth
+                    <a href="{{ url('/home') }}" class="btn btn-primary">一覧ページへ</a>
+                @else
+                    <a href="{{ route('login') }}" class="btn btn-primary">ログイン</a>
+
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="btn btn-primary">アカウント作成</a>
+                    @endif
+                @endauth
+            </div>
+        @endif
         {{-- <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
         <nav id="sidebar-wrapper">
             <ul class="sidebar-nav">
