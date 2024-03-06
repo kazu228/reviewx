@@ -12,7 +12,8 @@ class Review extends Model
     protected $fillable = [
         'title',
         'sentences',
-        'user_id'
+        'user_id',
+        'file_name',
     ];
 
     public function getJoinedUsers() {

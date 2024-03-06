@@ -50,10 +50,11 @@ class HomeController extends Controller
 
         // ファイルアップロード
         $request->file('contents')->store('');
-
+        $file_name = $request->file('contents')->getClientOriginalName();
 
         $input_arr = $request->input();
         $input_arr['user_id'] = $user_id;
+        $input_arr['file_name'] = $file_name;
         $review->create($input_arr);
         return redirect('/home');
     }
