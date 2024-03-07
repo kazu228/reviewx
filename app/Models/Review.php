@@ -23,6 +23,7 @@ class Review extends Model
 
     public function getJoinedUserFirst($id) {
         return $this->select('review.*', 'users.name AS user_name')
-                    ->leftjoin('users', 'review.user_id', '=', 'users.id')->first($id);
+                    ->leftjoin('users', 'review.user_id', '=', 'users.id')
+                    ->where('review.id', '=', $id)->first();
     }
 }

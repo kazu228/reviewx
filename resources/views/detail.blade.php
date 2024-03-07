@@ -13,7 +13,10 @@
                     <h4>{{ $review->title }}</h4>
                 </div>
 
-                {{-- プログラムが来る --}}
+                {{-- プログラムが来る todo:デザイン考える --}}
+
+                {{ $program }}
+
 
                 <div class="card-body">
                     {{ $review->sentences }}

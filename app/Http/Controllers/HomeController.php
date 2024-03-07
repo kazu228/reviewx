@@ -37,7 +37,10 @@ class HomeController extends Controller
         // $review = Review::select('review.*', 'users.name AS user_name')
         //                     ->leftjoin('users', 'review.user_id', '=', 'users.id')->first($id);
         $review = $this->review->getJoinedUserFirst($id);
-        return view('detail', compact('review'));
+        $file_name = $review->file_name;
+        $path = storage_path('app');
+        $program = file_get_contents($path.'\/'.$file_name);
+        return view('detail', compact('review', 'program'));
     }
     public function create()
     {
@@ -48,9 +51,10 @@ class HomeController extends Controller
         $review = new Review();
         $user_id = Auth::id();
 
-        // ファイルアップロード
-        $request->file('contents')->store('');
         $file_name = $request->file('contents')->getClientOriginalName();
+        // ファイルアップロード
+        $request->file('contents')->storeAs('', $file_name);
+        
 
         $input_arr = $request->input();
         $input_arr['user_id'] = $user_id;
