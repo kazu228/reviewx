@@ -37,7 +37,7 @@
                 
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('add') }}">
+                    <form method="POST" action="{{ route('comment_store', ['id' => $review_id ]) }}">
                         @csrf
 
                         {{-- <div class="row mb-3">

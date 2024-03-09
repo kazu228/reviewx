@@ -69,6 +69,7 @@ class HomeController extends Controller
         // $review = Review::select('review.*', 'users.name AS user_name')
         //                 ->leftjoin('users', 'review.user_id', '=', 'users.id')->first($id);
         $review = $this->review->getJoinedUserFirst($id);
-        return view('comment', compact('review'));
+        $review_id = $id;
+        return view('comment', compact('review', 'review_id'));
     }
 }

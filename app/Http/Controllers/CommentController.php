@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Comments;
 
 class CommentController extends Controller
 {
@@ -18,9 +19,14 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $review_id)
     {
         //
+        $comment = new Comments();
+        $input_arr = $request->input();
+        $input_arr['review_id'] = $review_id;
+        $comment->create($input_arr);
+        return redirect('/home');
     }
 
     /**

@@ -27,3 +27,5 @@ Route::get('/detail/{id}', [App\Http\Controllers\HomeController::class, 'detail'
 Route::get('/create', [App\Http\Controllers\HomeController::class, 'create'])->name('create');
 Route::post('/add', [App\Http\Controllers\HomeController::class, 'add'])->name('add');
 Route::post('/comment/{id}', [App\Http\Controllers\HomeController::class, 'comment'])->name('comment');
+
+Route::post('/store/{id}', [App\Http\Controllers\CommentController::class, 'store'])->name('comment_store');
