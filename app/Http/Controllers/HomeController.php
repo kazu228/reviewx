@@ -70,6 +70,10 @@ class HomeController extends Controller
         //                 ->leftjoin('users', 'review.user_id', '=', 'users.id')->first($id);
         $review = $this->review->getJoinedUserFirst($id);
         $review_id = $id;
-        return view('comment', compact('review', 'review_id'));
+
+        $path = storage_path('app');
+        $program = file_get_contents($path.'\/'.$review->file_name);
+
+        return view('comment', compact('review', 'review_id', 'program'));
     }
 }
