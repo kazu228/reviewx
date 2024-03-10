@@ -48,6 +48,17 @@ class HomeController extends Controller
     }
     public function add(Request $request)
     {
+        $request->validate([
+            'title' => 'required',
+            'contents' => 'required',
+            'sentences' => 'required',],
+            [
+                'title.required' => 'タイトルは必須です。',
+                'contents.required' => 'プログラムファイルは必須項目です。', 
+                'sentences.required' => '説明分は必須項目です。'
+            ]
+        );
+            
         $review = new Review();
         $user_id = Auth::id();
 
