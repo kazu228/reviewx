@@ -13,13 +13,17 @@
                     <h4>{{ $review->title }}</h4>
                 </div>
 
-                {{-- プログラムが来る todo:デザイン考える --}}
-
-                {{ $program }}
-
 
                 <div class="card-body">
-                    {{ $review->sentences }}
+                    <div class="row mb-3">
+                        <label for="contents" class="col-md-4 col-form-label text-md-end">レビューする<br>プログラムファイル</label>
+                        {{ $program }}
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="password" class="col-md-4 col-form-label text-md-end">レビューしてもらうにあたって伝えたいこと</label>
+                        {{ $review->sentences }}
+                    </div>
                 </div>
 
                 <form method="POST" action="{{ route('comment', ['id' => $review->id ]) }}">
