@@ -25,7 +25,7 @@
                         {{ $review->sentences }}
                     </div>
                 </div>
-
+            </div>
                 <form method="POST" action="{{ route('comment', ['id' => $review->id ]) }}">
                     @csrf
 
@@ -37,8 +37,28 @@
                         </div>
                     </div>
                 </form>
+
+            @foreach($comments as $comment)
+            <div class="card">
+
+                <div class="card-header">
+                    <h4>ID:0000009 テストさんのレビュー</h4>
+                </div>
+
+
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <label for="contents" class="col-md-4 col-form-label text-md-end">レビューコメント</label>
+                        {{ $comment->sentences }}
+                    </div>
+
+                    {{-- <div class="row mb-3">
+                        <label for="password" class="col-md-4 col-form-label text-md-end">レビューしてもらうにあたって伝えたいこと</label>
+                        {{ $review->sentences }}
+                    </div> --}}
+                </div>
             </div>
-            
+            @endforeach
         </div>
     </div>
 </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Review;
+use App\Models\Comments;
 
 class HomeController extends Controller
 {
@@ -13,10 +14,11 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct(Review $review)
+    public function __construct(Review $review, Comments $commets)
     {
         $this->middleware('auth');
         $this->review = $review;
+        $this->comments = $commets;
     }
 
     /**
@@ -40,7 +42,9 @@ class HomeController extends Controller
         $file_name = $review->file_name;
         $path = storage_path('app');
         $program = file_get_contents($path.'\/'.$file_name);
-        return view('detail', compact('review', 'program'));
+
+        $comments = $this->comments->getCommentByReviewId($review->id);
+        return view('detail', compact('review', 'program', 'comments'));
     }
     public function create()
     {

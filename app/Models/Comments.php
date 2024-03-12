@@ -12,4 +12,9 @@ class Comments extends Model
         'sentences',
         'review_id'
     ];
+
+    public function getCommentByReviewId($review_id) {
+        return $this->select('*')->where('review_id', '=', $review_id)->get();
+    }
+
 }
