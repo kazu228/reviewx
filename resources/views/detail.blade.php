@@ -15,10 +15,7 @@
 
 
                 <div class="card-body">
-                    <div class="row mb-3">
-                        <label for="contents" class="col-md-4 col-form-label text-md-end">レビューする<br>プログラムファイル</label>
-                        {{ $program }}
-                    </div>
+                    @include('components.program', ['program' => $program])
 
                     <div class="row mb-3">
                         <label for="password" class="col-md-4 col-form-label text-md-end">レビューしてもらうにあたって伝えたいこと</label>
