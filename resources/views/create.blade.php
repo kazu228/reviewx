@@ -6,6 +6,15 @@
         <div class="col-md-8">
             <h1 class="mb-1"><a href="{{ route('home') }}" style="text-decoration:none; color:inherit;">{{ config('app.name') }}</a></h1>
             <h3>書いたコードをレビューしてもらう</h3>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="card">
                 <div class="card-header"></div>
                 
@@ -19,12 +28,6 @@
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control " name="title" value="{{ old('title') }}" required autocomplete="name" autofocus placeholder="プログラムの内容を簡潔に">
-
-                                {{-- @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror --}}
                             </div>
                         </div>
 
@@ -34,11 +37,6 @@
                             <div class="col-md-6">
                                 {{-- <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email"> --}}
                                 <input type="file" name="contents" multiple />
-                                {{-- @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror --}}
                             </div>
                         </div>
 
@@ -48,11 +46,6 @@
                             <div class="col-md-6">
                                 {{-- <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password"> --}}
                                 <textarea name="sentences" rows="4" cols="40" class="form-control" placeholder="特に見てもらいたいところ、問題点など"></textarea>
-                                {{-- @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror --}}
                             </div>
                         </div>
 
