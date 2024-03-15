@@ -25,6 +25,7 @@ class CommentController extends Controller
         $comment = new Comments();
         $input_arr = $request->input();
         $input_arr['review_id'] = $review_id;
+        $input_arr['user_id'] = auth()->id();
         $comment->create($input_arr);
         return redirect('/home');
     }

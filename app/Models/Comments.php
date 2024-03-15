@@ -10,7 +10,8 @@ class Comments extends Model
     use HasFactory;
     protected $fillable = [
         'sentences',
-        'review_id'
+        'review_id',
+        'user_id'
     ];
 
     public function getCommentByReviewId($review_id) {
