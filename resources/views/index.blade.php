@@ -64,26 +64,26 @@
                     <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
                         <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-screen-smartphone"></i></span>
                         <h4><strong>無料（これから料金かかるかも）</strong></h4>
-                        <p class="text-faded mb-0">Looks great on any screen size!</p>
+                        {{-- <p class="text-faded mb-0">Looks great on any screen size!</p> --}}
                     </div>
                     <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
                         <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-pencil"></i></span>
                         <h4><strong>多くの人のレビューがもらえる</strong></h4>
-                        <p class="text-faded mb-0">Freshly redesigned for Bootstrap 5.</p>
+                        {{-- <p class="text-faded mb-0">Freshly redesigned for Bootstrap 5.</p> --}}
                     </div>
                     <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
                         <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-like"></i></span>
                         <h4><strong>自分自身がレビューをすることができる（新しいことに気づけるかも）</strong></h4>
-                        <p class="text-faded mb-0">
+                        {{-- <p class="text-faded mb-0">
                             Millions of users
                             <i class="fas fa-heart"></i>
                             Start Bootstrap!
-                        </p>
+                        </p> --}}
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-mustache"></i></span>
                         <h4><strong>何よりも楽しい！</strong></h4>
-                        <p class="text-faded mb-0">I mustache you a question...</p>
+                        {{-- <p class="text-faded mb-0">I mustache you a question...</p> --}}
                     </div>
                 </div>
             </div>
