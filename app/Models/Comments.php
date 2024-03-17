@@ -15,7 +15,7 @@ class Comments extends Model
     ];
 
     public function getCommentByReviewId($review_id) {
-        return $this->select('*')->where('review_id', '=', $review_id)->get();
+        return $this->select('*', 'users.name as user_name')->leftjoin('users', 'comments.user_id', '=', 'users.id')->where('review_id', '=', $review_id)->get();
     }
 
 }

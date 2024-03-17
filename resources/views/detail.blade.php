@@ -39,7 +39,7 @@
             <div class="card">
 
                 <div class="card-header">
-                    <h4>ID:0000009 テストさんのレビュー</h4>
+                    <h4>ID:{{ $comment->user_id }} {{ $comment->user_name }}さんのレビュー</h4>
                 </div>
 
 
