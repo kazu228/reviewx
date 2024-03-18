@@ -21,6 +21,11 @@
                 <div class="fixed-top" style="left:initial;">
                     @auth
                         <a href="{{ url('/home') }}" class="btn btn-primary">一覧ページへ</a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="">
+                            @csrf
+                            <button type="submit" class="btn btn-primary">ログアウト</button>
+                        </form>
                     @else
                         <a href="{{ route('login') }}" class="btn btn-primary">ログイン</a>
 
