@@ -22,7 +22,7 @@
                     @auth
                         <a href="{{ url('/home') }}" class="btn btn-primary">一覧ページへ</a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="">
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline">
                             @csrf
                             <button type="submit" class="btn btn-primary">ログアウト</button>
                         </form>
