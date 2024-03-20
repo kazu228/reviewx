@@ -6,6 +6,12 @@
         <div class="col-md-8">
             <h1 class="mb-1"><a href="{{ route('home') }}" style="text-decoration:none; color:inherit;">{{ config('app.name') }}</a></h1>
             <h3>人が書いたコードをレビューする</h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{{ route('home') }}" style="text-decoration:none; color:inherit;">一覧ページ</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">レビューする</li>
+                </ol>
+            </nav>
             <div class="card">
                 {{-- <div class="card-header"></div> --}}
                 <div class="card-body">

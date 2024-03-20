@@ -5,6 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <h1 class="mb-1"><a href="{{ route('home') }}" style="text-decoration:none; color:inherit;">{{ config('app.name') }}</a></h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{{ route('home') }}" style="text-decoration:none; color:inherit;">一覧ページ</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">レビューしてもらう</li>
+                </ol>
+            </nav>
             <h3>書いたコードをレビューしてもらう</h3>
             @if ($errors->any())
                 <div class="alert alert-danger">
