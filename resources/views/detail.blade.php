@@ -32,8 +32,8 @@
                 <form method="POST" action="{{ route('comment', ['id' => $review->id ]) }}">
                     @csrf
 
-                    <div class="row mb-0">
-                        <div class="col-md-6 offset-md-9">
+                    <div class="row mb-5 m-3">
+                        <div class="col-md-6 offset-md-10">
                             <button type="submit" class="btn btn-primary">
                             レビューする
                             </button>
