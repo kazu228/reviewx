@@ -23,10 +23,10 @@
                     {{ $review->sentences }}
                 </div>
             </div>
-
             @endforeach
         </div>
     </div>
 </div>
+{{-- {{ $reviews->links() }} --}}
 </body>
 @endsection
