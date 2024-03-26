@@ -25,8 +25,8 @@
             </div>
             @endforeach
         </div>
+        {{ $reviews->links() }}
     </div>
 </div>
-{{-- {{ $reviews->links() }} --}}
 </body>
 @endsection

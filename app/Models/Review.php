@@ -18,7 +18,7 @@ class Review extends Model
 
     public function getJoinedUsers() {
         return $this->select('review.*', 'users.name AS user_name')
-                            ->leftjoin('users', 'review.user_id', '=', 'users.id')->paginate(10);
+                            ->leftjoin('users', 'review.user_id', '=', 'users.id')->paginate(3);
     }
 
     public function getJoinedUserFirst($id) {
