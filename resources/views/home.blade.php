@@ -25,7 +25,9 @@
             </div>
             @endforeach
         </div>
-        {{ $reviews->links() }}
+        <div class="d-flex justify-content-center">
+            {{ $reviews->links() }}
+        </div>
     </div>
 </div>
 </body>
