@@ -38,11 +38,11 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="contents" class="col-md-4 col-form-label text-md-end">レビューしてもらう<br>プログラムファイル</label>
+                            <label for="contents" class="col-md-4 col-form-label text-md-end">レビューしてもらう<br>プログラムファイル<br><span class="text-danger">一つだけにしてください。</span></label>
 
                             <div class="col-md-6">
                                 {{-- <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email"> --}}
-                                <input type="file" name="contents" multiple />
+                                <input type="file" name="contents"/>
                             </div>
                         </div>
 
