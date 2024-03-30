@@ -42,7 +42,7 @@
                 </form>
 
             @foreach($comments as $comment)
-            <div class="card">
+            <div class="card m-4">
 
                 <div class="card-header">
                     <h4>ID:{{ $comment->user_id }} {{ $comment->user_name }}さんのレビュー</h4>
