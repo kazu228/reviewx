@@ -16,7 +16,9 @@
             <div class="card m-4">
                 <div class="card-header">
                     <h4>ID:{{ $review->user_id }} {{ $review->user_name }}さんのレビュー依頼</h4>
-                    <h4><a href="{{ route('detail', ['id' => $review->id ]) }}" style="text-decoration:none;">{{ $review->title }}</a></h4>
+                    <h4><a href="{{ route('detail', ['id' => $review->id ]) }}" style="text-decoration:none;">{{ $review->title }}</a>
+
+                    <a href="{{ route('detail', ['id' => $review->id ]) }}" class="btn btn-primary">レビューする</a></h4>
                 </div>
 
                 <div class="card-body">
