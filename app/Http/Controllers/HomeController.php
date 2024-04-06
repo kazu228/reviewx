@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Review;
 use App\Models\Comments;
+use App\Models\File;
 
 class HomeController extends Controller
 {
@@ -66,9 +67,21 @@ class HomeController extends Controller
         $review = new Review();
         $user_id = Auth::id();
 
-        $file_name = $request->file('contents')->getClientOriginalName();
-        // ファイルアップロード
-        $request->file('contents')->storeAs('', $file_name);
+        $files = [];
+        foreach($request->file('contents') as $key => $file) {
+
+            $file_name = $file->extension();
+            // ファイルアップロード
+            $file->storeAs('', $fileName);
+            $files[]['name'] = $fileName;
+            // $request->file('contents')->storeAs('', $file_name);
+        }
+
+        // ファイルテーブルに記録をとる
+        foreach ($files as $key => $file) {
+            File::create($file);
+        }
+
         
 
         $input_arr = $request->input();
