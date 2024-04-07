@@ -67,27 +67,32 @@ class HomeController extends Controller
         $review = new Review();
         $user_id = Auth::id();
 
+        $input_arr = $request->input();
+        $input_arr['user_id'] = $user_id;
+        // $input_arr['file_name'] = $file_name;
+        $review->create($input_arr);
+
         $files = [];
+
+        
         foreach($request->file('contents') as $key => $file) {
 
             $file_name = $file->extension();
             // ファイルアップロード
-            $file->storeAs('', $fileName);
-            $files[]['name'] = $fileName;
+            $file->storeAs('', $file_name);
+            $files[] = ['name' => $file_name, 'review_id' => $review->id ];
+            // $files[]['name'] = $file_name;
+            // $files[]['review_id'] = $review->id;
             // $request->file('contents')->storeAs('', $file_name);
         }
 
+        var_dump($files);
         // ファイルテーブルに記録をとる
         foreach ($files as $key => $file) {
+            var_dump($file);exit;
             File::create($file);
         }
 
-        
-
-        $input_arr = $request->input();
-        $input_arr['user_id'] = $user_id;
-        $input_arr['file_name'] = $file_name;
-        $review->create($input_arr);
         return redirect('/home');
     }
 
