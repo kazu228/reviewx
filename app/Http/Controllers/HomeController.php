@@ -70,14 +70,14 @@ class HomeController extends Controller
         $input_arr = $request->input();
         $input_arr['user_id'] = $user_id;
         // $input_arr['file_name'] = $file_name;
-        $review->create($input_arr);
+        $review = $review->create($input_arr);
 
         $files = [];
 
-        
+        // var_dump($request->file('contents'));
         foreach($request->file('contents') as $key => $file) {
 
-            $file_name = $file->extension();
+            $file_name = $file->getClientOriginalName();
             // ファイルアップロード
             $file->storeAs('', $file_name);
             $files[] = ['name' => $file_name, 'review_id' => $review->id ];
