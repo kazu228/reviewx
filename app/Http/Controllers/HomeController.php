@@ -109,4 +109,8 @@ class HomeController extends Controller
 
         return view('comment', compact('review', 'review_id', 'program'));
     }
+
+    public function terms() {
+        return view('terms');
+    }
 }
